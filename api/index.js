@@ -1,15 +1,13 @@
 export default async function handler(req, res) {
-    // CORS Headers (taaki browser aur mobile se request block na ho)
+    // CORS Headers
     res.setHeader('Access-Control-Allow-Origin', '*');
     res.setHeader('Access-Control-Allow-Methods', 'POST, OPTIONS');
     res.setHeader('Access-Control-Allow-Headers', 'Authorization, Content-Type');
 
-    // OPTIONS request ko handle kar (browser test ke liye)
     if (req.method === 'OPTIONS') {
         return res.status(200).end();
     }
 
-    // Agar POST nahi hai, toh error de
     if (req.method !== 'POST') {
         return res.status(405).json({ error: "Method not allowed. Please use POST." });
     }
@@ -20,10 +18,11 @@ export default async function handler(req, res) {
         return res.status(401).json({ error: "Missing JWT Token" });
     }
 
-    // Garena ka naya URL
-    const targetUrl = "https://clientbp.ggpolarbear.com/GetLoginData";
+    // Garena ka URL
+    const targetUrl = "https://clientbp.ppmainecoonghj.com/GetLoginData";
     
     try {
+        // Node.js ke liye axios use karna better hai, par fetch bhi chalega
         const response = await fetch(targetUrl, {
             method: 'POST',
             headers: {
