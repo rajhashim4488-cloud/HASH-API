@@ -1,0 +1,11 @@
+{
+  "name": "hashim-ban-api",
+  "version": "1.0.0",
+  "description": "Custom Ban API Proxy",
+  "main": "api/index.js",
+  "type": "module",
+  "scripts": {
+    "start": "node api/index.js"
+  },
+  "dependencies": {}
+}
