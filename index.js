@@ -19,7 +19,7 @@ export default async function handler(req, res) {
     }
 
     // Garena ka URL
-    const targetUrl = "https://clientbp.ppmainecoonghj.com/GetLoginData";
+    const targetUrl = "https://clientbp.ggpolarbear.com/GetLoginData";
     
     try {
         const response = await fetch(targetUrl, {
